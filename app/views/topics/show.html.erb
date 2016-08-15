@@ -1,0 +1,25 @@
+<div class="container">
+
+<div class="child row">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+    <div class="blog-text">
+      <p class="left"><strong>【タイトル】</strong><%= @topic.title %></p>
+      <p class="left"><strong>【内　　容】</strong><%= @topic.content %></p>
+      <p class="right">
+        <strong>作成時間:</strong>
+        <%= @topic.created_at.strftime("%y/%m/%d %p %l:%M") %>
+      </p>
+    </div>
+    <p>【コメント一覧】</p>
+    <div id="comments_area">
+      <%= render partial: 'comments/index', locals: { comments: @comments, blog: @topic } %>
+    </div>
+    <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
+    <% if current_user.id == @topic.user_id %>
+      <%= link_to '編集', edit_topic_path(@topic) %> |
+    <% end %>
+    <%= link_to '戻る', topics_path %>
+  </div>
+</div>
+
+</div>
