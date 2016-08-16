@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   validates :name, presence: true
 
   has_many :topics, dependent: :destroy
-
+  has_many :comments, dependent: :destroy
+  
   mount_uploader :avatar, AvatarUploader
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)

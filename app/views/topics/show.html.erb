@@ -12,9 +12,10 @@
     </div>
     <p>【コメント一覧】</p>
     <div id="comments_area">
-      <%= render partial: 'comments/index', locals: { comments: @comments, blog: @topic } %>
+      <%= render partial: 'comments/index', locals: { comments: @comments, topic: @topic } %>
     </div>
-    <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
+    
+    <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
     <% if current_user.id == @topic.user_id %>
       <%= link_to '編集', edit_topic_path(@topic) %> |
     <% end %>

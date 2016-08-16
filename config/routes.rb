@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-
   root 'tops#index'
   
   resources :topics do
+    resources :comments
+  
     collection do
       post :confirm
       post 'topics' => 'topics#new', :path => '/new'
