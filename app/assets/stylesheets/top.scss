@@ -27,7 +27,7 @@ header {
   padding-bottom: 15%;
   width: 100%;
   background-size: cover;
-  background-image: url("header.jpg");
+//  background-image: url("header.jpg");
   background-attachment: fixed;
 }
 
@@ -47,12 +47,12 @@ header {
 footer {
   width: 100%;
   background-color:#2c3e50;
-  padding: 20px 0px;
+  padding: 5px 0px;
   color: white;
   font-size: 12px;
-  width: 100%;
   position: absolute;
   bottom:0;
+  text-align: center;
 }
 
 html {
@@ -79,6 +79,7 @@ html {
     color: white;
     line-height: 60px;
     text-decoration: none;
+    text-align: center;
   }
   
   &:hover {
@@ -131,4 +132,9 @@ html {
       background-color: transparent;
     }
   }
+}
+
+.flash {
+  color: white;
+  padding-top: 10px;
 }

@@ -14,6 +14,9 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -49,8 +52,10 @@ gem 'faker'
 
 group :development do
   gem 'letter_opener_web'
-  gem 'letter_opener'
+#  gem 'letter_opener'
   gem 'mailcatcher'
+  
+  gem 'dotenv-rails'
 end
 
 gem 'rails_admin'
@@ -61,7 +66,6 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'carrierwave'
-
 gem 'rmagick'
 
 gem 'pusher'
@@ -70,12 +74,20 @@ gem "font-awesome-rails"
 
 gem 'fog'
 
-gem 'dotenv-rails'
-
 group :development, :test do
   gem 'capistrano', '3.6.0'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
+end
+
+gem 'therubyracer', platforms: :ruby
+
+group :development, :test do
+  gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
+  gem 'pry-doc'    # methodを表示
+  gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
+  gem 'pry-stack_explorer' # スタックをたどれる
+  gem 'better_errors'
 end

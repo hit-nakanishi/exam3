@@ -201,7 +201,7 @@ ja:
     pm: 午後
   attributes:
     title: タイトル
-    name: 名前
+    name: ニックネーム
     email: メールアドレス
     content: 内容
     current_password: "現在のパスワード"

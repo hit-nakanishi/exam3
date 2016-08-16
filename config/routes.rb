@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'top#index'
+  root 'tops#index'
+  
   resources :topics do
     collection do
       post :confirm
@@ -11,7 +12,19 @@ Rails.application.routes.draw do
   resources :contacts, only: [:index, :new, :create] do
     collection do
       post :confirm
+      post 'contacts' => 'contacts#new', :path => '/new'
     end
   end
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+  
 end
