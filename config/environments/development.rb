@@ -46,4 +46,9 @@ Rails.application.configure do
   
   BetterErrors::Middleware.allow_ip! "0.0.0.0/0"  
 
+  require 'pusher'
+  Pusher.app_id = 'PUSHER_APP_ID'
+  Pusher.key = 'PUSHER_ACCESS_KEY'
+  Pusher.secret = 'PUSHER_ACCESS_KEY_SECRET'
+
 end

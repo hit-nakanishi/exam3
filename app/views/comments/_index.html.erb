@@ -2,7 +2,7 @@
   <% comments.order(created_at: :asc).each do |comment| %>
     <% unless comment.id.nil? %>
       <li>
-        <p class="left"><%= comment.user.name %>さんがコメントしました。
+        <p class="left"><%= comment.user.name %>さんがコメント
           <%= comment.comment_time %></p>
         <p class="left"><%= comment.content %></p>
         <% if current_user.id == comment.user.id %>

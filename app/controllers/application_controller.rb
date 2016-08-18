@@ -5,12 +5,18 @@ class ApplicationController < ActionController::Base
   
   # before_actionでdeviseのストロングパラメーターにnameカラムを追加するメソッドを実行します。
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :current_notifications, if: :user_signed_in?
+
+  PERMISSIBLE_ATTRIBUTES = %i(name avatar avatar_cache)
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to main_app.root_url, :alert => exception.message
   end
-  
-  PERMISSIBLE_ATTRIBUTES = %i(name avatar avatar_cache)
+
+  def current_notifications
+    @notifications = Notification.where(recipient_id: current_user.id).order(created_at: :desc).includes({comment: [:topic]})
+    @notifications_count = Notification.where(recipient_id: current_user).order(created_at: :desc).unread.count
+  end
 
   private
     def configure_permitted_parameters

@@ -1,0 +1,10 @@
+<%= link_to conversations_path,
+    class: 'dropdown-toggle', data: { toggle: 'dropdown' }, role: 'button', aria: { haspopup: 'true', expanded: 'false' } do %>
+
+  <i class="fa fa-envelope-o"><div id="messagelog"></div></i>
+  <span class="caret"></span>
+<% end %>
+
+<ul class="dropdown-menu">
+  <li><%= link_to 'メッセージ', conversations_path %></li>
+</ul>

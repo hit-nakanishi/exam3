@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
+
   root 'tops#index'
+
+  resources :relationships, only: [:create, :destroy]
   
   resources :topics do
     resources :comments
@@ -23,6 +27,14 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+
+  resources :users, only: [:index, :show, :edit, :update] do
+    resources :notifications, only: [:index]
+  end
+  
+  resources :conversations do
+    resources :messages
+  end
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
