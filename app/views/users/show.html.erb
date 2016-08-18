@@ -26,13 +26,13 @@
       <% @user.followed_users.each do |followed|%>
         <% unless @user.id ==  followed.id %>
           <div class="prof-img">
-            <%= link_to profile_img(followed), user_path(followed.id) %>
+            <%= profile_img(followed) %>
           </div>
       
           <% if followed.name.blank? %>
-            <p><%= link_to "未登録", user_path(followed.id) %>
+            <p><%= "未登録" %>
           <% else %>
-            <p><%= link_to followed.name, user_path(followed.id) %>
+            <p><%= followed.name %>
           <% end %>
       
         <% end %>
@@ -44,13 +44,13 @@
       <% @user.followers.each do |followers|%>
         <% unless @user.id == followers.id %>
           <div class="prof-img">
-            <%= link_to profile_img(followers), user_path(followers.id) %>
+            <%= profile_img(followers) %>
           </div>
       
           <% if followers.name.blank? %>
-            <p><%= link_to "未登録", user_path(followers.id) %>
+            <p><%= "未登録" %>
           <% else %>
-            <p><%= link_to followers.name, user_path(followers.id) %></p>
+            <p><%= followers.name %></p>
           <% end %>
   
         <% end %>
