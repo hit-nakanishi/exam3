@@ -54,8 +54,7 @@ group :development do
   gem 'letter_opener_web'
 #  gem 'letter_opener'
   gem 'mailcatcher'
-  
-  gem 'dotenv-rails'
+ 
 end
 
 gem 'rails_admin'
@@ -91,3 +90,5 @@ group :development, :test do
   gem 'pry-stack_explorer' # スタックをたどれる
   gem 'better_errors'
 end
+
+gem 'dotenv-rails'
