@@ -44,7 +44,7 @@ Rails.application.configure do
   # If not everyone on the team is using vagrant
   #config.action_mailer.delivery_method = ENV['USER'] == 'vagrant' ? :letter_opener_web : :letter_opener
   
-  BetterErrors::Middleware.allow_ip! "0.0.0.0/0"  
+#  BetterErrors::Middleware.allow_ip! "0.0.0.0/0"  
 
   require 'pusher'
   Pusher.app_id = 'PUSHER_APP_ID'

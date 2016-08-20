@@ -1,10 +1,10 @@
 lock '3.6.0'
 
-デプロイするアプリケーション名
+#デプロイするアプリケーション名
 set :application, 'exam3'
 
 # cloneするgitのレポジトリ
-set :repo_url, 'git@github.com:hit-nakanishi/exam3.git'
+set :repo_url, 'git://github.com/hit-nakanishi/exam3.git'
 
 # deployするブランチ。デフォルトはmasterなのでなくても可。
 set :branch, ENV['BRANCH'] || 'master'
@@ -25,6 +25,8 @@ set :rbenv_type, :system
 
 #出力するログのレベル。
 set :log_level, :debug
+
+set :ssh_options, { forward_agent: true }
 
 namespace :deploy do
   desc 'Restart application'
