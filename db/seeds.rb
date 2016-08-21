@@ -1,7 +1,7 @@
 n = 3
 10.times do |n|
   name = Faker::Internet.name
-  email = "test" + n + "@test.test"
+  email = #{変数}"test@test.test"
   password = "password"
   User.create!(
                user_id: n,
