@@ -4,7 +4,6 @@ n = 3
   email = #{変数}"test@test.test"
   password = "password"
   User.create!(
-               user_id: n,
                email: email,
                name: name,
 	       password: password,
