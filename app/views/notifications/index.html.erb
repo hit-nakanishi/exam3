@@ -11,7 +11,10 @@
             <span class="label label-pill label-default"><%= display_read_status(notification.read) %></span>
             <p>
               <%= receive_user(notification) %>さんが
-              <small class="dropdown">「<%= notification.comment.topic.content.truncate(20) %>」にコメントしました。</small>
+	      <small class="dropdown"> 「
+		      <%=  link_to notification.comment.topic.content.truncate(20), topic_path(notification.comment.topic), method: 'get' %>
+	        」にコメントしました。
+              </small>
             </p>
             <p class="palette-paragraph text-right">
               <small class="dropdown">
