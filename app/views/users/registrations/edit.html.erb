@@ -20,8 +20,10 @@
       <% end %>
 
       <div class="field">
-        <%= f.label :current_password %> <i>(変更する場合は現在のパスワード)</i><br />
-        <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "現在のパスワード" %>
+        <% f @user.provider.blank? %>
+	  <%= f.label :current_password %> <i>(変更する場合は現在のパスワード)</i><br />
+          <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "現在のパスワード" %>
+        <% end %>
       </div>
 
       <div class="field">
