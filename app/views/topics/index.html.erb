@@ -20,7 +20,7 @@
 	    <% end%>
 	  </p>
 
-	  <% if current_user.id == user.id %>
+	  <% if current_user.id == topic.user.id %>
             <div class="prof-img">
 	      <p><%= link_to profile_img(topic.user), user_path(topic.user.id) %></p>
 	    </div>
@@ -30,7 +30,7 @@
 	    </div>
 	  <% end %>
 
-	  <% if current_user.id == user.id %>
+	  <% if current_user.id == topic.user.id %>
 	    <% if topic.user.name.blank? %>
 	      <%=  %><br>
 	      <%= link_to "未登録", user_path(topic.user.id) %>
