@@ -9,31 +9,46 @@
       <% if current_user.friend.include?(topic.user) or (current_user.id == topic.user.id) %>
         <div class="row">
           <%= link_to topic_path(topic), method: 'get' do %>
-            <p class="left"><strong><%= topic.content.truncate(20) %></strong></p>
+	    <p class="left"><strong><%= topic.content.truncate(20) %></strong></p>
           <% end %>
 
           <p class="right">
-            <%= topic.created_at.strftime("%y/%m/%d %p %l:%M") %>
-            <% if current_user.id == topic.user_id %>
-              <%= link_to "", edit_topic_path(topic.id), class: 'fa fa-pencil-square-o fa-lg' %>
-              <%= link_to "", topic_path(topic.id), method: :delete, data: { confirm: '本当に削除して宜しいですか？'}, class: 'fa fa-trash-o fa-lg' %>
+	    <%= topic.created_at.strftime("%y/%m/%d %p %l:%M") %>
+	    <% if current_user.id == topic.user_id %>
+	      <%= link_to "", edit_topic_path(topic.id), class: 'fa fa-pencil-square-o fa-lg' %>
+	      <%= link_to "", topic_path(topic.id), method: :delete, data: { confirm: '本当に削除して宜しいですか？'}, class: 'fa fa-trash-o fa-lg' %>
             <% end%>
           </p>
 
-          <div class="prof-img">
-            <p><%= link_to profile_img(topic.user), user_path(topic.user.id) %></p>
-          </div>
-
-          <% if topic.user.name.blank? %>
-            <%=  %><br>
-            <%= link_to "未登録", user_path(topic.user.id) %>
+          <% if current_user.id == user.id %>
+            <div class="prof-img">
+	      <p><%= link_to profile_img(topic.user), user_path(topic.user.id) %></p>
+	    </div>
           <% else %>
-            <%= link_to topic.user.name, user_path(topic.user.id) %>
+	    <div class="prof-img">
+	      <p><%= profile_img(topic.user) %></p>
+            </div>
+          <% end %>
+
+          <% if current_user.id == user.id %>
+	    <% if topic.user.name.blank? %>
+	      <%=  %><br>
+	      <%= link_to "未登録", user_path(topic.user.id) %>
+	    <% else %>
+	      <%= link_to topic.user.name, user_path(topic.user.id) %>
+	    <% end %>
+          <% else %>
+            <% if topic.user.name.blank? %>
+	      <%=  %><br>
+	      <%= "未登録" %>
+	    <% else %>
+	      <%= topic.user.name %>
+	    <% end %>
           <% end %>
         </div>
       <% else %>
-        
-      <% end %>
+									          
+										      <% end %>
     <% end %>
 
   </div>
