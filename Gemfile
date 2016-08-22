@@ -38,6 +38,8 @@ group :development, :test do
 
   gem 'spring'
 
+  gem "rspec-rails"
+  gem "factory_girl_rails"
 end
 
 gem 'twitter-bootstrap-rails'
@@ -92,3 +94,10 @@ group :development, :test do
 end
 
 gem 'dotenv-rails'
+
+group :test do
+  gem "capybara"
+  gem "database_cleaner"
+  gem "launchy"
+  gem "selenium-webdriver"
+end
