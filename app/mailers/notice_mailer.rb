@@ -1,7 +1,7 @@
 class NoticeMailer < ApplicationMailer
   def sendmail_topic(topic)
     @topic = topic
-    mail to: "naka24naka24@gmail.com",
+    mail to: 'naka24naka24@gmail.com',
     subject: '【exam3】トピックが投稿されました'
   end
 
@@ -16,7 +16,7 @@ class NoticeMailer < ApplicationMailer
   # お問い合わせ投稿（admin）
   def sendmail_contact_admin(contact2)
     @contact = contact2
-    mail to: "naka24naka24@gmail.com",
+    mail to: 'naka24naka24@gmail.com',
     subject: '【exam3】お問い合わせが届きました'
   end
 end
